@@ -23,7 +23,7 @@ export function Hero() {
             <div className="absolute inset-0 bg-gradient-to-r from-neon-green via-neon-blue to-neon-red opacity-50 rounded-lg animate-pulse" />
             <div className="absolute inset-2 bg-cyber-darker rounded-lg overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
+                src="https://i.postimg.cc/T1XPLMSw/DP.jpg"
                 alt="Profile"
                 className="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-300"
               />
@@ -46,7 +46,7 @@ export function Hero() {
             >
               <div className="cyber-border p-2">
                 <span className="terminal-text text-lg">
-                  Security Researcher & Ethical Hacker
+                  Aspiring SDE & ML Enthusiast
                 </span>
               </div>
             </motion.div>
