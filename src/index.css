@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cyber-black text-neon-green antialiased;
+  }
+
+  ::selection {
+    @apply bg-neon-green/30 text-white;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .cyber-border {
+    @apply relative overflow-hidden;
+    &::before {
+      content: '';
+      @apply absolute inset-0 border-2 border-neon-green rounded-lg;
+      animation: borderGlow 2s linear infinite;
+    }
+  }
+
+  .cyber-button {
+    @apply relative px-8 py-3 bg-transparent border-2 border-neon-green text-neon-green
+    rounded-md transition-all duration-300 overflow-hidden hover:bg-neon-green/10
+    hover:shadow-neon-green focus:outline-none focus:ring-2 focus:ring-neon-green/50;
+    &::before {
+      content: '';
+      @apply absolute inset-0 bg-gradient-to-r from-neon-green/0 via-neon-green/20 to-neon-green/0;
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+    &:hover::before {
+      transform: translateX(100%);
+    }
+  }
+
+  .cyber-card {
+    @apply bg-cyber-dark/80 backdrop-blur-sm border-2 border-neon-green/50 rounded-lg p-6
+    shadow-lg hover:shadow-neon-green transition-all duration-300 relative overflow-hidden;
+    &::before {
+      content: '';
+      @apply absolute inset-0 bg-gradient-to-r from-neon-green/0 via-neon-green/5 to-neon-green/0;
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+    &:hover::before {
+      transform: translateX(100%);
+    }
+  }
+
+  .cyber-text {
+    @apply font-mono text-neon-green;
+  }
+
+  .glitch-text {
+    @apply relative text-neon-green;
+    text-shadow: 2px 2px theme(colors.neon.red);
+    animation: textGlitch 3s infinite;
+  }
+
+  .terminal-text {
+    @apply font-mono text-neon-green;
+    &::before {
+      content: '> ';
+    }
+  }
+
+  .cyber-grid-bg {
+    @apply relative;
+    background-size: 50px 50px;
+    background-image: linear-gradient(rgba(0, 255, 0, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 255, 0, 0.05) 1px, transparent 1px);
+  }
+
+  .neon-border {
+    @apply relative rounded-lg overflow-hidden;
+    &::before {
+      content: '';
+      @apply absolute inset-0;
+      background: linear-gradient(90deg, theme(colors.neon.green), theme(colors.neon.blue), theme(colors.neon.red));
+      animation: borderFlow 2s linear infinite;
+      background-size: 200% 200%;
+    }
+  }
+
+  .skill-progress {
+    @apply h-2 bg-cyber-darker rounded-full overflow-hidden;
+    .bar {
+      @apply h-full bg-gradient-to-r from-neon-green via-neon-blue to-neon-red;
+      animation: progressFlow 2s linear infinite;
+      background-size: 200% 200%;
+    }
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px theme(colors.neon.green),
+                0 0 10px theme(colors.neon.green),
+                0 0 15px theme(colors.neon.green);
+  }
+  50% {
+    box-shadow: 0 0 10px theme(colors.neon.green),
+                0 0 20px theme(colors.neon.green),
+                0 0 30px theme(colors.neon.green);
+  }
+}
+
+@keyframes textGlitch {
+  0%, 100% {
+    text-shadow: 2px 2px theme(colors.neon.green),
+                -2px -2px theme(colors.neon.red);
+    transform: translate(0);
+  }
+  25% {
+    text-shadow: -2px 2px theme(colors.neon.blue),
+                2px -2px theme(colors.neon.green);
+    transform: translate(1px, 1px);
+  }
+  75% {
+    text-shadow: 2px -2px theme(colors.neon.red),
+                -2px 2px theme(colors.neon.blue);
+    transform: translate(-1px, -1px);
+  }
+}
+
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes progressFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.cyber-input {
+  @apply bg-cyber-darker/80 backdrop-blur-sm border-2 border-neon-green/50 text-neon-green px-4 py-2 rounded-lg
+  focus:outline-none focus:ring-2 focus:ring-neon-green/50 focus:border-neon-green
+  placeholder-neon-green/50;
+}
+
+.cyber-textarea {
+  @apply cyber-input resize-none min-h-[120px];
+}
+
+.section-title {
+  @apply text-4xl font-bold mb-12 text-center relative text-neon-green;
+  text-shadow: 0 0 10px theme(colors.neon.green);
+  &::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-neon-green rounded-full mt-4;
+    box-shadow: 0 0 10px theme(colors.neon.green);
+  }
+}
