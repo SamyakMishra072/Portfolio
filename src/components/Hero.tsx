@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-import { Terminal, Shield, Code, Cpu, Network, Lock } from 'lucide-react';
+import { Terminal, Shield, Code, Network, Lock, Github, Linkedin, Instagram, Facebook } from 'lucide-react';
 
 export function Hero() {
   return (
     <section className="min-h-screen relative overflow-hidden bg-cyber-black cyber-grid-bg">
       <div className="absolute inset-0 bg-matrix-rain opacity-10" />
-      
+
       <div className="container pt-32 pb-20 relative">
         <motion.div
           initial={{ opacity: 0 }}
@@ -46,7 +46,7 @@ export function Hero() {
             >
               <div className="cyber-border p-2">
                 <span className="terminal-text text-lg">
-                  Aspiring SDE & ML Enthusiast
+                  Aspiring SDE &amp; Open Source Contributor
                 </span>
               </div>
             </motion.div>
@@ -58,20 +58,18 @@ export function Hero() {
               className="text-6xl md:text-8xl font-bold glitch-text mb-8"
             >
               <span className="text-neon-green">
-                {"<"}Cyber{"/>"}
+                Samyak
               </span>
-              <span className="text-neon-red">Security</span>
+              <span className="text-neon-red"> Mishra</span>
             </motion.h1>
-
             <motion.p
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6 }}
               className="text-xl md:text-2xl text-neon-blue max-w-3xl mb-12"
             >
-              Penetration Testing | Vulnerability Assessment | Security Research
+              Technical Head GeeksforGeeks Techno Main Salt Lake
             </motion.p>
-
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -79,11 +77,11 @@ export function Hero() {
               className="flex flex-wrap gap-6 justify-center lg:justify-start"
             >
               <a href="#contact" className="cyber-button group">
-                <Terminal className="w-5 h-5 mr-2 inline-block" />
+                <Terminal className="w-6 h-6 mr-2 inline-block" />
                 Initialize Connection
               </a>
               <a href="#projects" className="cyber-button group">
-                <Shield className="w-5 h-5 mr-2 inline-block" />
+                <Shield className="w-6 h-6 mr-2 inline-block" />
                 View Arsenal
               </a>
             </motion.div>
@@ -95,10 +93,10 @@ export function Hero() {
               className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mt-16"
             >
               {[
-                { icon: <Code className="w-6 h-6" />, label: "Exploit Development" },
-                { icon: <Shield className="w-6 h-6" />, label: "Penetration Testing" },
-                { icon: <Network className="w-6 h-6" />, label: "Network Security" },
-                { icon: <Lock className="w-6 h-6" />, label: "Cryptography" },
+                { icon: <Code className="w-8 h-8" />, label: "C/C++ JAVA Python" },
+                { icon: <Shield className="w-8 h-8" />, label: "Data Structures & Algorithms" },
+                { icon: <Network className="w-8 h-8" />, label: "Machine Learning" },
+                { icon: <Lock className="w-8 h-8" />, label: "Linux" },
               ].map((item, index) => (
                 <div key={index} className="cyber-card group">
                   <div className="text-neon-green group-hover:text-neon-blue transition-colors duration-300">
@@ -108,9 +106,45 @@ export function Hero() {
                 </div>
               ))}
             </motion.div>
+
+            {/* Social Links */}
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1.2 }}
+              className="flex gap-8 justify-center lg:justify-start mt-8"
+            >
+              <a
+                href="https://github.com/SamyakMishra072"
+                target="_blank"
+                className="cyber-social-button"
+              >
+                <Github className="w-8 h-8" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/samyak072/"
+                target="_blank"
+                className="cyber-social-button"
+              >
+                <Linkedin className="w-8 h-8" />
+              </a>
+              <a
+                href="https://www.instagram.com/samyak_072/"
+                target="_blank"
+                className="cyber-social-button"
+              >
+                <Instagram className="w-8 h-8" />
+              </a>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                className="cyber-social-button"
+              >
+                <Facebook className="w-8 h-8" />
+              </a>
+            </motion.div>
           </motion.div>
         </motion.div>
-
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cyber-black to-transparent" />
       </div>
     </section>

@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
-import { Send, Terminal, Shield, AlertTriangle } from 'lucide-react';
+//import emailjs from '@emailjs/browser';
+import { Terminal, Shield, AlertTriangle } from 'lucide-react';
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -11,17 +11,24 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formRef.current) return;
-
+  
     setIsSubmitting(true);
     setSubmitStatus('idle');
-
+  
     try {
-      await emailjs.sendForm(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        formRef.current,
-        'YOUR_PUBLIC_KEY'
-      );
+      const formData = new FormData(formRef.current);
+      const data = Object.fromEntries(formData.entries());
+  
+      const response = await fetch('http://localhost:5000/api/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (!response.ok) throw new Error('Failed to send message');
+  
       setSubmitStatus('success');
       formRef.current.reset();
     } catch (error) {
@@ -30,6 +37,7 @@ export function Contact() {
       setIsSubmitting(false);
     }
   };
+  
 
   return (
     <section id="contact" className="py-20 bg-cyber-black cyber-grid-bg">
