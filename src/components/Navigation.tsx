@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Terminal, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+import { Menu, X, Terminal, Shield, User } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 
 export function Navigation() {
@@ -32,6 +34,7 @@ export function Navigation() {
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
+          {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
             <Shield className="w-8 h-8 text-neon-green group-hover:text-neon-blue transition-colors duration-300" />
             <span className="text-2xl font-mono font-bold text-neon-green group-hover:text-neon-blue transition-colors duration-300">
@@ -44,7 +47,8 @@ export function Navigation() {
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-neon-green hover:text-neon-blue transition-colors duration-300"
+              className="text-neon-green hover:text-neon-blue transition-colors duration-300 focus:outline-none"
+              aria-label="Toggle Menu"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -64,6 +68,9 @@ export function Navigation() {
                   transition-transform duration-300 origin-left rounded" />
               </a>
             ))}
+            <Link to="/admin/login" className="flex items-center gap-2 text-neon-green hover:text-neon-blue transition-colors duration-300">
+              <User className="w-4 h-4" /> Admin
+            </Link>
             <ThemeToggle />
           </div>
         </div>
@@ -84,6 +91,14 @@ export function Navigation() {
                   {item.label}
                 </a>
               ))}
+              <Link
+                to="/admin/login"
+                onClick={() => setIsOpen(false)}
+                className="block text-neon-green hover:text-neon-blue transition-colors duration-300 
+                  font-mono text-sm py-2 px-4 rounded-lg hover:bg-neon-green/10 flex items-center gap-2"
+              >
+                <User className="w-4 h-4" /> Admin
+              </Link>
             </div>
           </div>
         )}
