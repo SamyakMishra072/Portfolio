@@ -20,7 +20,6 @@ app.use(cors());
 
 // Routes
 app.use('/api/messages', require('./routes/messageRoutes'));
-app.use('/api/admin', require('./routes/adminRoutes'));
 
 // Root Route
 app.get('/', (req, res) => {
