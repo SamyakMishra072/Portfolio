@@ -1,6 +1,5 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-//import emailjs from '@emailjs/browser';
 import { Terminal, Shield, AlertTriangle } from 'lucide-react';
 
 export function Contact() {

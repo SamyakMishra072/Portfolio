@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion';
 import { Terminal, Shield, Code, Network, Lock, Github, Linkedin, Instagram, Facebook } from 'lucide-react';
-
 export function Hero() {
   return (
     <section className="min-h-screen relative overflow-hidden bg-cyber-black cyber-grid-bg">
       <div className="absolute inset-0 bg-matrix-rain opacity-10" />
-
       <div className="container pt-32 pb-20 relative">
         <motion.div
           initial={{ opacity: 0 }}
@@ -20,7 +18,7 @@ export function Hero() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="relative w-64 h-64 lg:w-96 lg:h-96"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-neon-green via-neon-blue to-neon-red opacity-50 rounded-lg animate-pulse" />
+          <div className="absolute inset-0 bg-gradient-to-r from-neon-green via-neon-blue to-neon-red opacity-50 rounded-lg animate-pulse" />
             <div className="absolute inset-2 bg-cyber-darker rounded-lg overflow-hidden">
               <img
                 src="https://i.postimg.cc/T1XPLMSw/DP.jpg"
@@ -30,7 +28,6 @@ export function Hero() {
             </div>
             <div className="absolute -inset-0.5 bg-gradient-to-r from-neon-green via-neon-blue to-neon-red opacity-30 rounded-lg blur animate-border-flow" />
           </motion.div>
-
           {/* Content */}
           <motion.div
             initial={{ x: 50, opacity: 0 }}
@@ -50,7 +47,6 @@ export function Hero() {
                 </span>
               </div>
             </motion.div>
-
             <motion.h1
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}

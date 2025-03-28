@@ -83,7 +83,7 @@ export function Navigation() {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => setIsOpen(true)}
                   className="block text-neon-green hover:text-neon-blue transition-colors duration-300 
                     font-mono text-sm py-2 px-4 rounded-lg hover:bg-neon-green/10"
                 >
@@ -93,7 +93,7 @@ export function Navigation() {
               ))}
               <Link
                 to="/admin/login"
-                onClick={() => setIsOpen(false)}
+                onClick={() => setIsOpen(true)}
                 className="block text-neon-green hover:text-neon-blue transition-colors duration-300 
                   font-mono text-sm py-2 px-4 rounded-lg hover:bg-neon-green/10 flex items-center gap-2"
               >

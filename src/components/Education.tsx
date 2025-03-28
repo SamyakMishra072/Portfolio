@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { GraduationCap, Terminal, Code, Shield } from 'lucide-react';
-
 export function Education() {
   const education = [
     {
@@ -28,7 +27,6 @@ export function Education() {
       ]
     }
   ];
-
   return (
     <section id="education" className="py-20 bg-cyber-darker cyber-grid-bg">
       <motion.div
@@ -56,7 +54,7 @@ export function Education() {
                   </div>
                   <h3 className="text-xl font-mono text-neon-green">{edu.degree}</h3>
                 </div>
-                
+          
                 <div className="flex flex-wrap gap-4 text-neon-blue mb-4 font-mono text-sm">
                   <span>{edu.institution}</span>
                   <span className="terminal-text">{edu.period}</span>
