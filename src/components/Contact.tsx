@@ -10,24 +10,28 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formRef.current) return;
-  
+
     setIsSubmitting(true);
     setSubmitStatus('idle');
-  
+
     try {
       const formData = new FormData(formRef.current);
       const data = Object.fromEntries(formData.entries());
-  
-      const response = await fetch('http://localhost:5000/api/messages', {
+
+      // SheetDB expects data wrapped inside a "data" key
+      const payload = { data };
+
+      // Using your provided SheetDB API endpoint
+      const response = await fetch('https://sheetdb.io/api/v1/fbs71z8qufvyq', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
-  
+
       if (!response.ok) throw new Error('Failed to send message');
-  
+
       setSubmitStatus('success');
       formRef.current.reset();
     } catch (error) {
@@ -36,7 +40,6 @@ export function Contact() {
       setIsSubmitting(false);
     }
   };
-  
 
   return (
     <section id="contact" className="py-20 bg-cyber-black cyber-grid-bg">
