@@ -3,27 +3,36 @@ import { GraduationCap, Terminal, Code, Shield } from 'lucide-react';
 export function Education() {
   const education = [
     {
-      degree: 'MSc in Cybersecurity',
-      institution: 'Digital Defense Institute',
-      period: '2022 - 2024',
+      degree: 'Bachelor of Technology',
+      institution: 'Techno Main Salt Lake',
+      period: '2022 - 2026',
       icon: <Shield className="w-6 h-6" />,
-      description: 'Advanced research in malware analysis, cryptography, and network security. Specialized in offensive security and threat intelligence.',
+      description: 'I am Pursuing my BTech in Computer Science & Engineering from Techno Main Salt Lake',
       achievements: [
-        'Published research on AI-powered malware detection',
-        'Led university CTF team to national victory',
-        'Developed novel encryption algorithm'
+        'Class Representative of CSE Department',
+        'Student Convenor of CSE Department',
+        'Technical Head of GeeksforGeeks Student Chapter Techno Main Salt Lake',
+        'Tech Team Member of CUrBrain @Geekonix'
       ]
     },
     {
-      degree: 'BSc in Computer Science',
-      institution: 'Tech University',
-      period: '2018 - 2022',
+      degree: 'Higher Secondary CBSE Board',
+      institution: 'D.A.V Model School Durgapur',
+      period: '2019 - 2021',
       icon: <Code className="w-6 h-6" />,
-      description: 'Core focus on systems programming, network protocols, and security fundamentals. Minor in Mathematics with emphasis on cryptography.',
+      description: 'Secured 87.4% Marks with 95/100 in Computer Science',
       achievements: [
-        'First place in Security Hackathon',
-        'Published paper on secure system design',
-        'Founded university security club'
+        '',
+      ]
+    },
+    {
+      degree: 'Secondary CBSE Board',
+      institution: 'D.A.V Model School Durgapur',
+      period: '2007 - 2019',
+      icon: <Code className="w-6 h-6" />,
+      description: 'Secured 90% Marks in CBSE Board Examinations',
+      achievements: [
+        '',
       ]
     }
   ];
