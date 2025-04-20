@@ -4,16 +4,6 @@ import { Terminal, Shield, Code, Brain, Globe, Database, Lock, Cpu, Network, Bug
 export function Skills() {
   const skills = [
     {
-      category: 'Offensive Security',
-      icon: <Shield className="w-6 h-6" />,
-      items: [
-        { name: 'Penetration Testing', level: 95 },
-        { name: 'Exploit Development', level: 90 },
-        { name: 'Malware Analysis', level: 85 },
-        { name: 'Social Engineering', level: 88 },
-      ],
-    },
-    {
       category: 'Programming & Development',
       icon: <Code className="w-6 h-6" />,
       items: [
@@ -24,23 +14,15 @@ export function Skills() {
       ],
     },
     {
-      category: 'Network Security',
-      icon: <Network className="w-6 h-6" />,
+      category: 'Full Stack & Cyber Fusion',
+      icon: <Cpu className="w-6 h-6" />,
       items: [
-        { name: 'Packet Analysis', level: 90 },
-        { name: 'Network Protocols', level: 88 },
-        { name: 'Firewall Configuration', level: 85 },
-        { name: 'IDS/IPS', level: 87 },
-      ],
-    },
-    {
-      category: 'Cryptography',
-      icon: <Lock className="w-6 h-6" />,
-      items: [
-        { name: 'Encryption/Decryption', level: 90 },
-        { name: 'Hash Cracking', level: 88 },
-        { name: 'PKI', level: 85 },
-        { name: 'Blockchain Security', level: 82 },
+        { name: 'Java Full Stack', level: 90 },
+        { name: 'Cybersecurity Fundamentals', level: 92 },
+        { name: 'Oracle SQL', level: 88 },
+        { name: 'Spring Boot', level: 85 },
+        { name: 'React.js', level: 84 },
+        { name: 'Linux (Ubuntu)', level: 90 },
       ],
     },
   ];
