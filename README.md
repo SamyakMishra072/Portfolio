@@ -2,14 +2,6 @@
 
 A modern, responsive, and animated frontend-only portfolio website for Samyak Mishra, built with **TailwindCSS**, **Vanilla JavaScript**, and custom 3D animations.
 
----
-
-## 🖥️ Demo
-
-Live site: https://samyak072.vercel.app/
-
----
-
 ## ✨ Features
 
 - **Hero Section** with 3D text effect  
