@@ -1,141 +1,187 @@
-import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { Terminal, Shield, AlertTriangle } from 'lucide-react';
 
-export function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const formRef = useRef<HTMLFormElement>(null);
+import { Mail, Send, User, MessageSquare } from 'lucide-react';
+import { useState } from 'react';
 
-  const handleSubmit = async (e: React.FormEvent) => {
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formRef.current) return;
+    // Placeholder form submission
+    console.log('Form submitted:', formData);
+    alert('Thank you for your message! I\'ll get back to you soon.');
+    setFormData({ name: '', email: '', message: '' });
+  };
 
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      const formData = new FormData(formRef.current);
-      const data = Object.fromEntries(formData.entries());
-
-      // SheetDB expects data wrapped inside a "data" key
-      const payload = { data };
-
-      // Using your provided SheetDB API endpoint
-      const response = await fetch('https://sheetdb.io/api/v1/fbs71z8qufvyq', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) throw new Error('Failed to send message');
-
-      setSubmitStatus('success');
-      formRef.current.reset();
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
   return (
-    <section id="contact" className="py-20 bg-cyber-black cyber-grid-bg">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className="container"
-      >
-        <h2 className="section-title">Establish Connection</h2>
-        <div className="max-w-2xl mx-auto">
-          <div className="cyber-card">
-            <div className="flex items-center gap-2 mb-6">
-              <Terminal className="w-6 h-6 text-neon-green" />
-              <span className="terminal-text">Initializing secure communication channel...</span>
+    <section id="contact" className="py-20 px-4">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-3d font-['Montserrat']">
+            Get In Touch
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-pink-500 to-violet-500 mx-auto mb-6"></div>
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            I'm always open to discussing new opportunities, interesting projects, 
+            or just having a friendly chat about technology.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Contact Info */}
+          <div className="space-y-8">
+            <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 
+                          backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
+              
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 
+                                rounded-xl flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-gray-300 text-sm">Email</p>
+                    <a 
+                      href="mailto:samyakmishra61@gmail.com"
+                      className="text-white font-medium hover:text-purple-400 transition-colors"
+                    >
+                      samyakmishra61@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 
+                                rounded-xl flex items-center justify-center">
+                    <User className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-gray-300 text-sm">LinkedIn</p>
+                    <a 
+                      href="https://linkedin.com/in/samyak072"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white font-medium hover:text-green-400 transition-colors"
+                    >
+                      linkedin.com/in/samyak072
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-gray-700 to-gray-800 
+                                rounded-xl flex items-center justify-center">
+                    <MessageSquare className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-gray-300 text-sm">GitHub</p>
+                    <a 
+                      href="https://github.com/SamyakMishra072"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white font-medium hover:text-gray-400 transition-colors"
+                    >
+                      github.com/SamyakMishra072
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+            <div className="text-center">
+              <p className="text-gray-400 text-sm">
+                Response time: Usually within 24 hours
+              </p>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 
+                        backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-mono text-neon-green mb-2">
-                  IDENTIFY YOURSELF_
+                <label htmlFor="name" className="block text-white font-medium mb-2">
+                  Name
                 </label>
                 <input
                   type="text"
                   id="name"
                   name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   required
-                  className="cyber-input w-full"
-                  placeholder="Enter codename"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg 
+                           text-white placeholder-gray-400 focus:outline-none focus:ring-2 
+                           focus:ring-purple-500 focus:border-transparent transition-all"
+                  placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-mono text-neon-green mb-2">
-                  COMMUNICATION PROTOCOL_
+                <label htmlFor="email" className="block text-white font-medium mb-2">
+                  Email
                 </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   required
-                  className="cyber-input w-full"
-                  placeholder="Enter secure email"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg 
+                           text-white placeholder-gray-400 focus:outline-none focus:ring-2 
+                           focus:ring-purple-500 focus:border-transparent transition-all"
+                  placeholder="your.email@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-mono text-neon-green mb-2">
-                  MESSAGE CONTENT_
+                <label htmlFor="message" className="block text-white font-medium mb-2">
+                  Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
                   required
-                  className="cyber-textarea w-full"
-                  placeholder="Enter encrypted message"
+                  rows={5}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg 
+                           text-white placeholder-gray-400 focus:outline-none focus:ring-2 
+                           focus:ring-purple-500 focus:border-transparent transition-all resize-none"
+                  placeholder="Tell me about your project or just say hello..."
                 />
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="cyber-button w-full group"
+                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 
+                         text-white font-medium py-3 px-6 rounded-lg
+                         hover:from-purple-500 hover:to-pink-500 transition-all duration-300
+                         hover:scale-105 transform hover:shadow-lg hover:shadow-purple-500/25
+                         flex items-center justify-center gap-2"
               >
-                {isSubmitting ? (
-                  <div className="flex items-center justify-center">
-                    <Terminal className="w-5 h-5 animate-pulse" />
-                    <span className="ml-2">Transmitting...</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-center">
-                    <Shield className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-                    <span>Transmit Secure Message</span>
-                  </div>
-                )}
+                <Send className="w-5 h-5" />
+                Send Message
               </button>
-
-              {submitStatus === 'success' && (
-                <div className="flex items-center gap-2 text-neon-green p-4 border border-neon-green rounded-lg">
-                  <Terminal className="w-5 h-5" />
-                  <p className="font-mono text-sm">Transmission successful. Awaiting response...</p>
-                </div>
-              )}
-
-              {submitStatus === 'error' && (
-                <div className="flex items-center gap-2 text-neon-red p-4 border border-neon-red rounded-lg">
-                  <AlertTriangle className="w-5 h-5" />
-                  <p className="font-mono text-sm">Transmission failed. Retry connection...</p>
-                </div>
-              )}
             </form>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
-}
+};
+
+export default Contact;

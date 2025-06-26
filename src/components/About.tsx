@@ -1,111 +1,80 @@
-import { motion } from 'framer-motion';
-import { Code2, Users, Globe, MessageSquare, Sparkles, Brain, Rocket, Heart } from 'lucide-react';
 
-export function About() {
-  const highlights = [
-    {
-      icon: <Code2 className="w-6 h-6" />,
-      title: 'Software Development',
-      description: 'Passionate about creating efficient and scalable solutions',
-      color: 'from-blue-500 to-cyan-500',
-    },
-    {
-      icon: <Users className="w-6 h-6" />,
-      title: 'Tech Leadership',
-      description: 'GFG Tech Head with experience in team management',
-      color: 'from-purple-500 to-pink-500',
-    },
-    {
-      icon: <Globe className="w-6 h-6" />,
-      title: 'Open Source',
-      description: 'Active contributor to various open source projects',
-      color: 'from-green-500 to-emerald-500',
-    },
-    {
-      icon: <MessageSquare className="w-6 h-6" />,
-      title: 'Public Speaking',
-      description: 'Experienced in technical presentations and workshops',
-      color: 'from-orange-500 to-yellow-500',
-    },
-  ];
+import { Mail } from 'lucide-react';
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
+const About = () => {
   return (
-    <section id="about" className="section-padding relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-primary-50/50 to-transparent dark:from-primary-900/10" />
-      
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={containerVariants}
-        className="container relative"
-      >
-        <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="section-title">About Me</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-            I'm a passionate software engineer and tech enthusiast currently pursuing my BTech in Computer Science 
-            at Techno Main Salt Lake. With a strong foundation in programming and problem-solving, I actively 
-            contribute to the tech community through various roles and initiatives.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {highlights.map((item, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="glass-card hover-card p-6 relative group"
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 rounded-lg transition-opacity duration-300`} />
-              
-              <div className="relative">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-gradient-to-br from-primary-500/10 to-primary-500/20">
-                  <div className="text-primary-600 dark:text-primary-400">{item.icon}</div>
-                </div>
-                
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  {item.title}
-                </h3>
-                
-                <p className="text-gray-600 dark:text-gray-300">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+    <section id="about" className="py-20 px-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-3d font-['Montserrat']">
+            About Me
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
         </div>
 
-        <motion.div
-          variants={itemVariants}
-          className="mt-16 text-center"
-        >
-          <a href="#contact" className="btn btn-outline">
-            Let's Connect
-            <Heart className="w-5 h-5 ml-2" />
-          </a>
-        </motion.div>
-      </motion.div>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <p className="text-lg text-gray-300 leading-relaxed">
+              I'm a Computer Science and Engineering student at Techno Main Salt Lake, 
+              passionate about building interactive web applications.
+            </p>
+            
+            <p className="text-lg text-gray-300 leading-relaxed">
+              With a strong foundation in programming and web technologies, I enjoy 
+              creating solutions that combine functionality with beautiful design. 
+              My journey in tech has been driven by curiosity and a desire to learn 
+              new technologies.
+            </p>
+
+            <div className="flex flex-wrap gap-4 pt-4">
+              {['React', 'JavaScript', 'Python', 'TailwindCSS'].map((tech) => (
+                <span 
+                  key={tech}
+                  className="px-4 py-2 bg-gradient-to-r from-purple-600/20 to-pink-600/20 
+                           border border-purple-500/30 rounded-full text-white text-sm
+                           hover:scale-105 transform transition-all duration-300"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="w-80 h-80 mx-auto relative">
+              <div className="w-full h-full bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl 
+                            transform rotate-6 absolute opacity-20"></div>
+              <div className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl 
+                            transform -rotate-6 absolute opacity-20"></div>
+              <div className="w-full h-full bg-black/40 backdrop-blur-sm rounded-3xl 
+                            flex items-center justify-center relative z-10 border border-white/10">
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 
+                                rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <Mail className="w-10 h-10 text-white" />
+                  </div>
+                  <p className="text-white font-semibold">Let's Connect!</p>
+                  <p className="text-gray-300 text-sm">samyakmishra61@gmail.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center mt-16">
+          <div className="flex justify-center space-x-6">
+            <a
+              href="mailto:samyakmishra61@gmail.com"
+              className="footer-icons bg-gradient-to-r from-purple-600 to-pink-600 p-3 rounded-lg 
+                       text-white hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+            >
+              <Mail className="w-6 h-6" />
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   );
-}
+};
+
+export default About;
