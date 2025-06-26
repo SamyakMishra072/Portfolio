@@ -21,7 +21,7 @@ const Hero = ({ scrollY }: HeroProps) => {
       >
         <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 text-3d font-['Montserrat']">
           Hi, I'm{' '}
-          <span className="gradient-text animate-pulse">
+          <span className="gradient-text animate-pulse" dark >
             Samyak Mishra
           </span>
         </h1>
