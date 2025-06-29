@@ -5,7 +5,7 @@ const Education = () => {
       period: "2022–2026",
       title: "B.Tech CSE",
       institution: "Techno Main Salt Lake",
-      score: "7.2 CGPA",
+      //score: "7.2 CGPA",
       description: "Computer Science and Engineering"
     },
     {
