@@ -45,6 +45,20 @@ const Achievements = () => {
       description: "Managing literary events and cultural activities",
       color: "from-indigo-500 to-blue-500"
     }
+    {
+      icon: <Trophy className="w-8 h-8" />,
+      title: "Team Leader – Phoenix",
+      organization: "Campus Hult Prize 2023, TMSL",
+      description: "Led team Phoenix in a campus-level social entrepreneurship competition",
+      color: "from-pink-500 to-red-500"
+    },
+    {
+      icon: <Trophy className="w-8 h-8" />,
+      title: "Team Leader – Slytherin",
+      organization: "Geekathon by Geekonix, Salt Lake",
+      description: "Led Slytherin to 4th place among 280+ participants in inter-college hackathon",
+      color: "from-lime-500 to-emerald-500"
+    }
   ];
 
   return (
