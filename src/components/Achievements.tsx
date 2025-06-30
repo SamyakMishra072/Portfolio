@@ -1,4 +1,3 @@
-
 import { Award, Users, Code, Trophy } from 'lucide-react';
 
 const Achievements = () => {
@@ -44,7 +43,7 @@ const Achievements = () => {
       organization: "Team Eclectica Literary Club",
       description: "Managing literary events and cultural activities",
       color: "from-indigo-500 to-blue-500"
-    }
+    },
     {
       icon: <Trophy className="w-8 h-8" />,
       title: "Team Leader – Phoenix",
