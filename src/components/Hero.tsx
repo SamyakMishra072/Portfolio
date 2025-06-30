@@ -1,4 +1,3 @@
-
 import { ChevronDown } from 'lucide-react';
 
 interface HeroProps {
@@ -19,9 +18,16 @@ const Hero = ({ scrollY }: HeroProps) => {
         className="text-center z-10 px-4 max-w-4xl mx-auto"
         style={{ transform: `translateY(${scrollY * 0.1}px)` }}
       >
+        {/* Profile Picture */}
+        <img 
+          src="/input.jpeg" 
+          alt="Samyak Mishra" 
+          className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-6 shadow-lg border-4 border-white/10 object-cover" 
+        />
+
         <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 text-3d font-['Montserrat']">
           Hi, I'm{' '}
-          <span className="gradient-text animate-pulse" dark >
+          <span className="gradient-text animate-pulse">
             Samyak Mishra
           </span>
         </h1>
