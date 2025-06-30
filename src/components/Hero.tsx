@@ -33,7 +33,7 @@ const Hero = ({ scrollY }: HeroProps) => {
         </h1>
         
         <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-slide-up">
-          Frontend Developer & Computer Science B.Tech Graduate
+          Technical Head GeeksforGeeks Student Chapter Techno Main Salt Lake | C++ & ML Enthusiast | Public Speaker
         </p>
         
         <div className="animate-slide-up" style={{ animationDelay: '0.3s' }}>
