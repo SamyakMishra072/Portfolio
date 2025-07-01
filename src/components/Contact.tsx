@@ -1,4 +1,3 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
 import { Mail, Send, User, MessageSquare } from 'lucide-react';
 import { useState } from 'react';
 
@@ -9,7 +8,8 @@ const Contact = () => {
     message: ''
   });
 
- const handleSubmit = async (e: React.FormEvent) => {
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
   try {
@@ -24,11 +24,11 @@ const Contact = () => {
       alert("✅ Thank you! Your message has been sent.");
       setFormData({ name: '', email: '', message: '' });
     } else {
-      alert("❌ Oops! Something went wrong. Please try again.");
+      alert("❌ Something went wrong.");
     }
   } catch (err) {
     console.error(err);
-    alert("❌ Network error. Please try again later.");
+    alert("❌ Network error.");
   }
 };
 
