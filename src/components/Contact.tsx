@@ -1,4 +1,4 @@
-
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 import { Mail, Send, User, MessageSquare } from 'lucide-react';
 import { useState } from 'react';
 
@@ -9,13 +9,28 @@ const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Placeholder form submission
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I\'ll get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
-  };
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    const res = await fetch(`${API_URL}/api/messages`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      alert("✅ Thank you! Your message has been sent.");
+      setFormData({ name: '', email: '', message: '' });
+    } else {
+      alert("❌ Oops! Something went wrong. Please try again.");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("❌ Network error. Please try again later.");
+  }
+};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
