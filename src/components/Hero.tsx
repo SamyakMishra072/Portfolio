@@ -20,7 +20,7 @@ const Hero = ({ scrollY }: HeroProps) => {
       >
         {/* Profile Picture */}
         <img 
-          src="https://i.postimg.cc/SRytSK8H/ANCHORING.jpg" 
+          src="https://i.postimg.cc/ZKNwygF1/aa.png" 
           alt="Samyak Mishra" 
           className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-6 shadow-lg border-4 border-white/10 object-cover" 
         />
