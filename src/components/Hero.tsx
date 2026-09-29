@@ -33,7 +33,7 @@ const Hero = ({ scrollY }: HeroProps) => {
         </h1>
         
         <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-slide-up">
-          Technical Co Head CUrBrain (Geekonix) Techno Main Salt Lake |
+          Data Engineer @ Fractal | CSE '26 @ TMSL
           C++ & ML Enthusiast | Public Speaker
         </p>
         
